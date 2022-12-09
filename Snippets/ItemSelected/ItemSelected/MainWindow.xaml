@@ -1,0 +1,78 @@
+﻿<Window x:Class="ItemSelected.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItemSelected"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>    
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <ListView x:Name="ListViewet" 
+                  Grid.Row="0"
+                  SelectedItem=""
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2"
+                  Grid.RowSpan="4" 
+                  SelectionChanged="ListViewet_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Navn" Width="100" DisplayMemberBinding="{Binding Path=Navn}"
+                                        />
+                        <GridViewColumn Header="Alder"
+                                        Width="100"
+                                        DisplayMemberBinding="{Binding Path=Alder}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+            <Button x:Name="TilfoejMennesker"
+                    Content="Tilfoej"
+                    Height="25"
+                    Width="75"
+                    Grid.Column="0"
+                    Click="TilfoejMennesker_Click"
+                    >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius"
+                            Value="5"/>
+                </Style>
+            </Button.Resources>
+            </Button>
+        <Button Height="25"
+                Width="75"
+                Name="RetAlderKnap"
+                Content="Ny Alder"
+                Click="RetAlderKnap_Click"
+                VerticalAlignment="Bottom">
+
+        </Button>
+
+        <TextBlock x:Name="TxBlockNavn"
+                   Grid.Column="4"
+                   Height="25"
+                   VerticalAlignment="Center"                   
+                   Background="LightBlue"/>
+        <TextBlock x:Name="TxBlockAlder"
+                   Grid.Column="4"                   
+                   Height="25"
+                   VerticalAlignment="Bottom"                   
+                   Background="LightCoral"/>
+
+    </Grid>
+</Window>
