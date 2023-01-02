@@ -17,7 +17,7 @@ namespace RabbitMqTrial
             var message = new {Name = "Producer", Message = "Hello There"};
             var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message));
 
-            channel.BasicPublish("", "demo-queue-key", null, body);
+            channel.BasicPublish("", "demo-queue", null, body);
         }
     }
 }

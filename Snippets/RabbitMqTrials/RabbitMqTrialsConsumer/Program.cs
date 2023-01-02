@@ -25,7 +25,7 @@ namespace RabbitMqTrialsConsumer
                 var message = Encoding.UTF8.GetString(body);
                 Console.WriteLine(message);
             };
-            channel.BasicConsume("demo-queue-key", true, consumer);
+            channel.BasicConsume("demo-queue", true, consumer);
             Console.ReadLine();
             
         }
